@@ -334,6 +334,58 @@
   .is__kunye{ display:block; margin-top:0.35rem; }
   .is__kunye b{ font-weight:400; color:var(--terzi); }
 
+  /* ---------- AFİŞ + SET KARELERİ ---------- */
+  .stiller{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(1.5rem,3vw,2.5rem);
+    align-items:end;
+    max-width:760px;
+    margin-top:clamp(2.25rem,4vw,3rem);
+    padding-top:clamp(1.5rem,3vw,2rem);
+    border-top:1px solid var(--line);
+  }
+  @media (min-width:620px){
+    .stiller{ grid-template-columns:minmax(0,290px) minmax(0,1fr); }
+  }
+
+  .stilKart{
+    position:relative;
+    display:block;
+    padding:0; border:0;
+    background:none;
+    cursor:pointer;
+    isolation:isolate;
+  }
+  /* arkada duran iki kare — "daha var" hissi */
+  .stilKart::before,
+  .stilKart::after{
+    content:"";
+    position:absolute; inset:0;
+    border:1px solid var(--line);
+    background:var(--ink-2);
+    z-index:-1;
+    transition:transform .45s cubic-bezier(.2,.6,.2,1);
+  }
+  .stilKart::before{ transform:translate(10px, -10px); }
+  .stilKart::after{ transform:translate(20px, -20px); }
+  .stilKart:hover::before, .stilKart:focus-visible::before{ transform:translate(14px, -14px); }
+  .stilKart:hover::after,  .stilKart:focus-visible::after{ transform:translate(28px, -28px); }
+
+  .stilKart img{
+    width:100%; height:auto;
+    filter:grayscale(0.75) contrast(1.04);
+    transition:filter .55s ease;
+  }
+  .stilKart:hover img, .stilKart:focus-visible img{ filter:none; }
+
+  .stiller__not p{
+    margin:0.75rem 0 1rem;
+    color:var(--muted);
+    max-width:36ch;
+  }
+  .stiller__ipucu{ color:var(--terzi); }
+
   /* ---------- DİKEY SOSYAL FİLMLER ---------- */
   .dikey{
     display:grid;
@@ -605,6 +657,22 @@
           </div>
         </a>
 
+      </div>
+
+      <!-- Karşılaşmalar afiş + set kareleri -->
+      <div class="stiller">
+        <button class="stilKart gir" type="button"
+                data-fotolar="gorseller/kars-01.jpg|gorseller/kars-02.jpg|gorseller/kars-03.jpg|gorseller/kars-04.jpg"
+                aria-label="Browse Karşılaşmalar key art and stills">
+          <img src="gorseller/kars-01.jpg" alt="Karşılaşmalar — key art" loading="lazy">
+          <span class="rozet"><span>Key art + 3 stills ↗</span></span>
+        </button>
+
+        <div class="stiller__not gir">
+          <span class="etiket">Karşılaşmalar · Exxen</span>
+          <p>Key art and production stills from the second season, where I worked as Costume Designer.</p>
+          <span class="etiket stiller__ipucu">Tap the poster to browse</span>
+        </div>
       </div>
     </div>
 
@@ -909,33 +977,47 @@
     });
   });
 
-  // Set fotoğraflarını büyütme
+  // Fotoğraf büyütme — hem set kareleri hem afiş galerisi
   (function(){
-    var kareler = Array.prototype.slice.call(document.querySelectorAll('.kontak .kare img'));
-    var katman = document.getElementById('buyut');
+    var katman   = document.getElementById('buyut');
     var buyukImg = document.getElementById('buyutImg');
-    var sayac = document.getElementById('sayac');
-    var sira = 0;
+    var sayac    = document.getElementById('sayac');
+    var liste = [];
+    var sira  = 0;
 
     function goster(i){
-      sira = (i + kareler.length) % kareler.length;
-      buyukImg.src = kareler[sira].src;
-      buyukImg.alt = kareler[sira].alt;
-      sayac.textContent = String(sira + 1).padStart(2,'0') + ' / ' + String(kareler.length).padStart(2,'0');
+      if (!liste.length) return;
+      sira = (i + liste.length) % liste.length;
+      buyukImg.src = liste[sira].src;
+      buyukImg.alt = liste[sira].alt || '';
+      sayac.textContent = String(sira + 1).padStart(2,'0') + ' / ' + String(liste.length).padStart(2,'0');
       katman.classList.add('acik');
       document.body.style.overflow = 'hidden';
     }
+    function ac(yeniListe, i){ liste = yeniListe; goster(i); }
     function kapa(){
       katman.classList.remove('acik');
       document.body.style.overflow = '';
     }
 
-    kareler.forEach(function(img, i){
-      var kare = img.closest('.kare');
-      kare.addEventListener('click', function(){ goster(i); });
+    // On set bölümü — tüm kareler tek galeri
+    var setKareleri = Array.prototype.slice.call(
+      document.querySelectorAll('.kontak .kare img')
+    ).map(function(img){ return { src: img.src, alt: img.alt }; });
+
+    document.querySelectorAll('.kontak .kare').forEach(function(kare, i){
+      kare.addEventListener('click', function(){ ac(setKareleri, i); });
       kare.addEventListener('keydown', function(e){
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goster(i); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(setKareleri, i); }
       });
+    });
+
+    // Afiş kartı — kendi fotoğraf listesini data niteliğinden alır
+    document.querySelectorAll('[data-fotolar]').forEach(function(kart){
+      var yollar = kart.getAttribute('data-fotolar').split('|');
+      var ad = kart.querySelector('img') ? kart.querySelector('img').alt : '';
+      var galeri = yollar.map(function(yol){ return { src: yol, alt: ad }; });
+      kart.addEventListener('click', function(){ ac(galeri, 0); });
     });
 
     document.getElementById('kapat').addEventListener('click', function(e){ e.stopPropagation(); kapa(); });
