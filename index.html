@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merve Göksu — Costume Supervisor &amp; Costume Designer</title>
+<meta name="description" content="Merve Göksu — Costume Supervisor and Costume Designer for television series, feature films and digital productions. Based in İstanbul, Türkiye.">
+<meta name="theme-color" content="#17131A">
+
+<meta property="og:title" content="Merve Göksu — Costume Supervisor &amp; Costume Designer">
+<meta property="og:description" content="Creating characters through costume.">
+<meta property="og:image" content="gorseller/kapak.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:      #17131A;
+    --ink-2:    #211A25;
+    --chalk:    #EDE7E1;
+    --muted:    #9A8F98;
+    --line:     #372E3C;
+    --terzi:    #7FA8C9;
+
+    --display: "Bodoni Moda", Georgia, serif;
+    --body: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --pad: clamp(1.25rem, 5vw, 5rem);
+    --maxw: 1400px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--chalk);
+    font-family:var(--body);
+    font-weight:300;
+    font-size:clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  ul{ list-style:none; margin:0; padding:0; }
+  figure{ margin:0; }
+  :focus-visible{ outline:2px solid var(--terzi); outline-offset:3px; }
+
+  .wrap{ max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+
+  .etiket{
+    font-family:var(--body);
+    font-size:0.6875rem; font-weight:400;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---------- ÜST BAR ---------- */
+  .bar{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    max-width:var(--maxw); margin-inline:auto;
+    padding:1.1rem var(--pad);
+    border-bottom:1px solid transparent;
+    transition:background .35s ease, border-color .35s ease;
+  }
+  .bar.kaydi{
+    background:color-mix(in srgb, var(--ink) 90%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom-color:var(--line);
+  }
+  .bar__mark{ font-family:var(--display); font-size:1.15rem; letter-spacing:0.14em; text-decoration:none; }
+  .bar__nav{ display:flex; gap:clamp(0.75rem,2.5vw,2rem); }
+  .bar__nav a{
+    text-decoration:none;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--chalk);
+    padding-block:0.25rem;
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease;
+    white-space:nowrap;
+  }
+  .bar__nav a:hover{ border-bottom-color:var(--terzi); }
+
+  /* ---------- KAPAK ---------- */
+  .kapak{
+    position:relative;
+    min-height:100vh; min-height:100svh;
+    display:grid; grid-template-rows:1fr auto;
+    isolation:isolate; overflow:hidden;
+  }
+  .kapak__foto{
+    position:absolute; inset:0; z-index:-2;
+    background-color:var(--ink-2);
+    background-image:url("gorseller/kapak.jpg"),
+      radial-gradient(120% 90% at 70% 20%, #2E2434 0%, #17131A 70%);
+    background-size:cover;
+    background-position:center 35%;
+    filter:grayscale(0.35) contrast(1.05);
+    transform:scale(1.04);
+    animation:yavas 24s ease-in-out infinite alternate;
+  }
+  @keyframes yavas{
+    from{ transform:scale(1.04) translateY(0); }
+    to  { transform:scale(1.1) translateY(-1.2%); }
+  }
+  .kapak__perde{
+    position:absolute; inset:0; z-index:-1;
+    background:
+      linear-gradient(to bottom,
+        color-mix(in srgb, var(--ink) 72%, transparent) 0%,
+        color-mix(in srgb, var(--ink) 45%, transparent) 32%,
+        color-mix(in srgb, var(--ink) 80%, transparent) 78%,
+        var(--ink) 100%),
+      linear-gradient(to right,
+        color-mix(in srgb, var(--ink) 68%, transparent) 0%,
+        transparent 58%);
+  }
+
+  .kapak__orta{
+    align-self:center;
+    padding-top:clamp(5rem,12vh,8rem);
+    padding-bottom:clamp(2rem,5vh,4rem);
+  }
+  .kapak__ad{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(3.4rem, 13.5vw, 10.5rem);
+    line-height:0.85; letter-spacing:-0.025em;
+    margin:0;
+    text-shadow:0 2px 40px color-mix(in srgb, var(--ink) 60%, transparent);
+  }
+  .kapak__ad em{ font-style:italic; display:block; padding-left:0.05em; }
+
+  .roller{
+    display:flex; flex-wrap:wrap; align-items:center;
+    gap:0.55rem clamp(0.9rem,2vw,1.5rem);
+    margin-top:clamp(1.5rem,4vh,2.5rem);
+  }
+  .roller span{ font-size:0.75rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--chalk); }
+  .roller i{ display:block; width:22px; height:1px; background:var(--terzi); opacity:0.8; }
+
+  .slogan{
+    font-family:var(--display); font-style:italic; font-weight:400;
+    font-size:clamp(1.15rem, 2.6vw, 2rem);
+    line-height:1.3; color:var(--chalk);
+    margin:clamp(1.5rem,4vh,2.5rem) 0 0;
+    max-width:22ch;
+    padding-left:1.15rem;
+    border-left:1px solid var(--terzi);
+  }
+
+  .kapak__alt{
+    border-top:1px solid color-mix(in srgb, var(--chalk) 18%, transparent);
+    padding-block:1.1rem clamp(1.25rem,4vh,2rem);
+    display:flex; flex-wrap:wrap; align-items:center;
+    gap:0.6rem clamp(1rem,3vw,2.5rem);
+    justify-content:space-between;
+  }
+  .kapak__baglar{ display:flex; flex-wrap:wrap; gap:0.6rem clamp(1rem,2.5vw,2rem); }
+  .kapak__baglar a{
+    text-decoration:none;
+    font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--chalk);
+    padding-bottom:2px;
+    border-bottom:1px solid color-mix(in srgb, var(--chalk) 30%, transparent);
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .kapak__baglar a:hover{ color:var(--terzi); border-bottom-color:var(--terzi); }
+
+  /* ---------- BÖLÜM ---------- */
+  .bolum{ padding-block:clamp(3rem, 8vh, 6rem); }
+  .bolum__bas{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:1.5rem; flex-wrap:wrap;
+    margin-bottom:clamp(2rem,5vh,3.5rem);
+  }
+  .bolum__bas h2{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(1.9rem, 4.5vw, 3.25rem);
+    line-height:1.05; letter-spacing:-0.015em;
+    margin:0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .hakkinda{
+    display:grid; grid-template-columns:1fr;
+    gap:clamp(2rem,5vw,4rem); align-items:start;
+  }
+  @media (min-width:900px){
+    .hakkinda{ grid-template-columns:minmax(0,1fr) minmax(0,0.9fr); }
+  }
+  .hakkinda__metin p{
+    margin:0;
+    font-size:clamp(1.05rem, 1rem + 0.4vw, 1.35rem);
+    line-height:1.55; max-width:44ch;
+  }
+
+  .uzmanlik{
+    display:grid; grid-template-columns:1fr;
+    column-gap:clamp(1.25rem,3vw,2.5rem);
+  }
+  @media (min-width:560px){ .uzmanlik{ grid-template-columns:repeat(2,1fr); } }
+  .uzmanlik li{
+    display:flex; gap:0.7rem; align-items:baseline;
+    padding-block:0.68rem;
+    border-top:1px solid var(--line);
+    font-size:0.9375rem;
+  }
+  .uzmanlik li::before{
+    content:"";
+    flex:0 0 14px; height:1px;
+    background:var(--terzi);
+    transform:translateY(-0.35em);
+  }
+
+  /* ---------- İŞLER ---------- */
+  .grup{ margin-bottom:clamp(3rem,7vh,5.5rem); }
+  .grup:last-child{ margin-bottom:0; }
+  .grup__bas{ display:flex; align-items:baseline; gap:0.9rem; margin-bottom:1.5rem; }
+  .grup__bas::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  .askilik{
+    border-top:1px solid var(--line);
+    display:grid; grid-template-columns:1fr;
+    gap:clamp(2.25rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2.25rem);
+  }
+  @media (min-width:720px){ .askilik{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1180px){ .askilik{ grid-template-columns:repeat(3,1fr); } }
+
+  .is{ position:relative; padding-top:2.25rem; text-decoration:none; display:block; }
+  @media (min-width:720px){ .is{ padding-top:var(--sarkma, 2.25rem); } }
+
+  .is::before{
+    content:"";
+    position:absolute; top:0; left:50%;
+    width:1px; height:100%;
+    background:linear-gradient(to bottom, var(--line), transparent);
+    max-height:var(--sarkma, 2.25rem);
+  }
+  .is::after{
+    content:"";
+    position:absolute; top:-3.5px; left:50%;
+    transform:translateX(-50%);
+    width:7px; height:7px; border-radius:50%;
+    background:var(--ink); border:1px solid var(--line);
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .is:hover::after, .is:focus-visible::after{ border-color:var(--terzi); background:var(--terzi); }
+
+  .is__kare{ position:relative; aspect-ratio:16/9; background:var(--ink-2); overflow:hidden; }
+  .is__kare img{
+    width:100%; height:100%; object-fit:cover;
+    filter:grayscale(1) contrast(1.05);
+    transition:filter .6s ease, transform .8s cubic-bezier(.2,.6,.2,1);
+  }
+  .is:hover .is__kare img, .is:focus-visible .is__kare img{
+    filter:grayscale(0) contrast(1); transform:scale(1.03);
+  }
+  .is__kare iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+  .oynat{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; }
+  .oynat span{
+    display:grid; place-items:center;
+    width:54px; height:54px; border-radius:50%;
+    border:1px solid color-mix(in srgb, var(--chalk) 55%, transparent);
+    background:color-mix(in srgb, var(--ink) 45%, transparent);
+    backdrop-filter:blur(3px);
+    transition:background .3s ease, border-color .3s ease, transform .3s ease;
+  }
+  .oynat span::after{
+    content:"";
+    width:0; height:0; margin-left:3px;
+    border-left:11px solid var(--chalk);
+    border-top:7px solid transparent; border-bottom:7px solid transparent;
+    transition:border-left-color .3s ease;
+  }
+  .is:hover .oynat span, .is:focus-visible .oynat span{
+    background:var(--terzi); border-color:var(--terzi); transform:scale(1.06);
+  }
+  .is:hover .oynat span::after, .is:focus-visible .oynat span::after{ border-left-color:var(--ink); }
+
+  .rozet{
+    position:absolute; inset:auto 0 0 0;
+    display:flex; justify-content:center;
+    padding-bottom:1.15rem; pointer-events:none;
+  }
+  .rozet span{
+    font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--chalk);
+    padding:0.45rem 0.9rem;
+    border:1px solid color-mix(in srgb, var(--chalk) 35%, transparent);
+    background:color-mix(in srgb, var(--ink) 55%, transparent);
+    backdrop-filter:blur(3px);
+  }
+  .is--bos .is__kare{
+    background:
+      repeating-linear-gradient(135deg,
+        var(--ink-2) 0 14px,
+        color-mix(in srgb, var(--ink-2) 60%, var(--ink)) 14px 28px);
+    display:grid; place-items:center;
+  }
+  .is--bos .is__kare .yazi{
+    font-family:var(--display); font-style:italic;
+    font-size:1.5rem; color:var(--muted);
+  }
+
+  .is__etiket{ margin-top:0.85rem; padding-top:0.7rem; border-top:1px solid var(--line); }
+  .is__ad{ display:block; font-family:var(--display); font-size:1.125rem; line-height:1.3; }
+  .is__ad small{
+    font-family:var(--body); font-size:0.6875rem;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--muted); margin-left:0.5rem;
+  }
+  .is__kunye{ display:block; margin-top:0.35rem; }
+  .is__kunye b{ font-weight:400; color:var(--terzi); }
+
+  /* ---------- ON SET: KONTAK BASKI ---------- */
+  .kontak{
+    border-top:1px solid var(--line);
+    padding-top:clamp(1.5rem,3vw,2.25rem);
+    column-count:1;
+    column-gap:clamp(0.75rem,1.6vw,1.25rem);
+  }
+  @media (min-width:640px){ .kontak{ column-count:2; } }
+  @media (min-width:1060px){ .kontak{ column-count:3; } }
+
+  .kare{
+    position:relative;
+    break-inside:avoid;
+    margin-bottom:clamp(0.75rem,1.6vw,1.25rem);
+    cursor:zoom-in;
+    background:var(--ink-2);
+    overflow:hidden;
+  }
+  .kare img{
+    width:100%; height:auto;
+    filter:grayscale(1) contrast(1.06) brightness(0.92);
+    transition:filter .55s ease, transform .9s cubic-bezier(.2,.6,.2,1);
+  }
+  .kare:hover img, .kare:focus-visible img{
+    filter:none; transform:scale(1.025);
+  }
+  /* kontak baskıdaki kare numarası */
+  .kare figcaption{
+    position:absolute; top:0; left:0;
+    font-size:0.625rem; letter-spacing:0.18em;
+    color:var(--chalk);
+    padding:0.4rem 0.6rem;
+    background:color-mix(in srgb, var(--ink) 62%, transparent);
+    backdrop-filter:blur(3px);
+    opacity:0; transform:translateY(-4px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .kare:hover figcaption, .kare:focus-visible figcaption{ opacity:1; transform:none; }
+
+  /* ---------- BÜYÜTME ---------- */
+  .buyut{
+    position:fixed; inset:0; z-index:100;
+    display:none; place-items:center;
+    background:color-mix(in srgb, var(--ink) 96%, transparent);
+    padding:clamp(1rem,4vw,3rem);
+    cursor:zoom-out;
+  }
+  .buyut.acik{ display:grid; }
+  .buyut img{
+    max-width:100%; max-height:88vh;
+    width:auto; height:auto;
+    object-fit:contain;
+  }
+  .buyut__kapat{
+    position:absolute; top:1rem; right:1rem;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    background:none; border:1px solid var(--line);
+    color:var(--chalk); font-size:1.25rem; line-height:1;
+    cursor:pointer;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .buyut__kapat:hover{ border-color:var(--terzi); color:var(--terzi); }
+  .buyut__ok{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:46px; height:46px;
+    display:grid; place-items:center;
+    background:none; border:1px solid var(--line);
+    color:var(--chalk); font-size:1.1rem;
+    cursor:pointer;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .buyut__ok:hover{ border-color:var(--terzi); color:var(--terzi); }
+  .buyut__ok--geri{ left:clamp(0.5rem,2vw,1.5rem); }
+  .buyut__ok--ileri{ right:clamp(0.5rem,2vw,1.5rem); }
+  .buyut__sayac{
+    position:absolute; bottom:1.25rem; left:50%; transform:translateX(-50%);
+    font-size:0.6875rem; letter-spacing:0.22em; color:var(--muted);
+  }
+
+  /* ---------- İLETİŞİM ---------- */
+  .iletisim{ border-top:1px solid var(--line); padding-block:clamp(3.5rem,9vh,6.5rem); }
+  .iletisim__grid{
+    display:grid; grid-template-columns:1fr;
+    gap:clamp(2rem,5vw,4rem); align-items:start;
+  }
+  @media (min-width:820px){ .iletisim__grid{ grid-template-columns:1.1fr 0.9fr; } }
+  .iletisim h2{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(2rem,6vw,4rem); line-height:1.02; letter-spacing:-0.02em;
+    margin:0 0 1.25rem;
+  }
+  .iletisim h2 em{ font-style:italic; color:var(--terzi); }
+  .iletisim p{ color:var(--muted); max-width:42ch; margin:0; }
+
+  .kanallar{ display:grid; gap:0; }
+  .kanal{
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding-block:1.15rem;
+    border-top:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-inline .3s ease, color .3s ease;
+  }
+  .kanal:last-child{ border-bottom:1px solid var(--line); }
+  .kanal:hover, .kanal:focus-visible{ padding-inline:0.6rem 0; color:var(--terzi); }
+  .kanal__deger{ font-family:var(--display); font-size:1.0625rem; }
+  .kanal__ok{ color:var(--muted); font-size:0.9rem; }
+  .kanal:hover .kanal__ok{ color:var(--terzi); }
+
+  /* ---------- ALT ---------- */
+  .alt{
+    border-top:1px solid var(--line);
+    padding-block:1.75rem 2.5rem;
+    display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  }
+
+  /* ---------- GİRİŞ ANİMASYONU ---------- */
+  .gir{
+    opacity:0; transform:translateY(18px);
+    transition:opacity .8s ease, transform .8s cubic-bezier(.2,.6,.2,1);
+  }
+  .gir.icerde{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    .gir{ opacity:1; transform:none; transition:none; }
+    .kapak__foto{ animation:none; }
+    *{ animation:none !important; transition-duration:.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <a class="bar__mark" href="#ust">MG</a>
+  <nav class="bar__nav" aria-label="Main menu">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#onset">On set</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ============ COVER ============ -->
+  <section class="kapak">
+    <div class="kapak__foto" role="img" aria-label="On-set photograph"></div>
+    <div class="kapak__perde" aria-hidden="true"></div>
+
+    <div class="kapak__orta wrap">
+      <h1 class="kapak__ad">Merve<em>Göksu</em></h1>
+
+      <div class="roller">
+        <span>Costume Supervisor</span>
+        <i aria-hidden="true"></i>
+        <span>Costume Designer</span>
+      </div>
+
+      <p class="slogan">“Creating characters through costume.”</p>
+    </div>
+
+    <div class="kapak__alt wrap">
+      <span class="etiket">İstanbul, Türkiye</span>
+      <div class="kapak__baglar">
+        <a href="tel:+905544820279">+90 554 482 02 79</a>
+        <a href="mailto:mervect8@gmail.com">mervect8@gmail.com</a>
+        <a href="https://instagram.com/mervegksu" target="_blank" rel="noopener">@mervegksu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="bolum wrap" id="about">
+    <div class="bolum__bas">
+      <h2>About</h2>
+      <span class="etiket">Areas of expertise</span>
+    </div>
+
+    <div class="hakkinda">
+      <div class="hakkinda__metin gir">
+        <p>I am a Costume Supervisor and Costume Designer with experience in television series, feature films and digital productions. I manage the costume process from script breakdown to the final shooting day, ensuring continuity, visual storytelling and efficient department management.</p>
+      </div>
+
+      <ul class="uzmanlik gir">
+        <li>Costume Supervision</li>
+        <li>Costume Design</li>
+        <li>Costume Breakdown</li>
+        <li>Continuity</li>
+        <li>Character Styling</li>
+        <li>Budget Management</li>
+        <li>Team Leadership</li>
+        <li>Fittings</li>
+        <li>Aging &amp; Dyeing</li>
+        <li>On-set Costume Management</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORKS ============ -->
+  <section class="bolum wrap" id="work">
+    <div class="bolum__bas">
+      <h2>Selected works</h2>
+      <span class="etiket">Tap a still to play</span>
+    </div>
+
+    <div class="grup">
+      <div class="grup__bas"><span class="etiket">Feature films</span></div>
+      <div class="askilik">
+
+        <a class="is gir" style="--sarkma:2.25rem" data-yt="dRBhN8P7CVk"
+           href="https://youtu.be/dRBhN8P7CVk" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/dRBhN8P7CVk/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/dRBhN8P7CVk/hqdefault.jpg'"
+                 alt="Bilmemek — trailer" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Bilmemek</span>
+            <span class="etiket is__kunye">Dir. Leyla Yılmaz</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:4.75rem" data-yt="zDSNrrKDFzs"
+           href="https://youtu.be/zDSNrrKDFzs" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/zDSNrrKDFzs/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/zDSNrrKDFzs/hqdefault.jpg'"
+                 alt="Mahalle — trailer" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Mahalle</span>
+            <span class="etiket is__kunye">Dir. İnan Altın</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:3.25rem" data-yt="tLy5X69y23Q"
+           href="https://youtu.be/tLy5X69y23Q" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/tLy5X69y23Q/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/tLy5X69y23Q/hqdefault.jpg'"
+                 alt="Turna Misali — trailer" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Turna Misali</span>
+            <span class="etiket is__kunye">Dir. İffet Eren · Consultant: Eyüp Boz</span>
+          </div>
+        </a>
+
+        <div class="is is--bos gir" style="--sarkma:2.25rem">
+          <div class="is__kare">
+            <span class="yazi">In post</span>
+            <span class="rozet"><span>Unreleased</span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">En Mutlu Günümde</span>
+            <span class="etiket is__kunye">Dir. Erkan Tunç</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="grup">
+      <div class="grup__bas"><span class="etiket">Television &amp; digital</span></div>
+      <div class="askilik">
+
+        <a class="is gir" style="--sarkma:3.5rem" data-yt="9uCerXGjo_Q"
+           href="https://youtu.be/9uCerXGjo_Q" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/9uCerXGjo_Q/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/9uCerXGjo_Q/hqdefault.jpg'"
+                 alt="Prens — trailer" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Prens <small>BluTV · Season 3</small></span>
+            <span class="etiket is__kunye">Dir. Bülent İşbilen · <b>Costume Supervisor</b></span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:2.25rem" data-yt="eTb5sFNWnXA"
+           href="https://youtu.be/eTb5sFNWnXA" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/eTb5sFNWnXA/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/eTb5sFNWnXA/hqdefault.jpg'"
+                 alt="Karşılaşmalar — trailer" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Karşılaşmalar <small>Exxen · Season 2</small></span>
+            <span class="etiket is__kunye">Dir. Gökdeniz Uslu · <b>Costume Designer</b></span>
+          </div>
+        </a>
+
+        <div class="is is--bos gir" style="--sarkma:5rem">
+          <div class="is__kare">
+            <span class="yazi">Styling</span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Paramparça</span>
+            <span class="etiket is__kunye">Cast styling</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="grup">
+      <div class="grup__bas"><span class="etiket">Commercials</span></div>
+      <div class="askilik">
+
+        <a class="is gir" style="--sarkma:2.25rem" data-yt="ZI8pTMeF8fI"
+           href="https://youtu.be/ZI8pTMeF8fI" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/ZI8pTMeF8fI/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/ZI8pTMeF8fI/hqdefault.jpg'"
+                 alt="ING Bank — commercial" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">ING Bank</span>
+            <span class="etiket is__kunye">Dir. Fatih Kızılgök</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:4.5rem" data-yt="272dBhQNP9s"
+           href="https://youtu.be/272dBhQNP9s" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/272dBhQNP9s/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/272dBhQNP9s/hqdefault.jpg'"
+                 alt="Türk Telekom — commercial" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Türk Telekom</span>
+            <span class="etiket is__kunye">Dir. Turgut Akaçık</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:3rem" data-yt="P1AaFVvlRdc"
+           href="https://youtu.be/P1AaFVvlRdc" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/P1AaFVvlRdc/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/P1AaFVvlRdc/hqdefault.jpg'"
+                 alt="Bambi — commercial, film one" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Bambi <small>Film 1</small></span>
+            <span class="etiket is__kunye">Dir. Müfit Sanık</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:2.25rem" data-yt="IqEtxMtMdsQ"
+           href="https://youtu.be/IqEtxMtMdsQ" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/IqEtxMtMdsQ/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/IqEtxMtMdsQ/hqdefault.jpg'"
+                 alt="Bambi — commercial, film two" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Bambi <small>Film 2</small></span>
+            <span class="etiket is__kunye">Dir. Müfit Sanık</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:5rem" data-yt="Vp17HZacpmc"
+           href="https://youtu.be/Vp17HZacpmc" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/Vp17HZacpmc/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/Vp17HZacpmc/hqdefault.jpg'"
+                 alt="Bambi — commercial, film three" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Bambi <small>Film 3</small></span>
+            <span class="etiket is__kunye">Dir. Müfit Sanık</span>
+          </div>
+        </a>
+
+        <a class="is is--bos gir" style="--sarkma:3.25rem"
+           href="https://www.instagram.com/reel/DYrTA1AMBg0/" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <span class="yazi">Vakıf Katılım</span>
+            <span class="rozet"><span>Watch on Instagram ↗</span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Vakıf Katılım <small>Film 1</small></span>
+            <span class="etiket is__kunye">Dir. Kerem Yükseloğlu</span>
+          </div>
+        </a>
+
+        <a class="is is--bos gir" style="--sarkma:2.25rem"
+           href="https://www.instagram.com/reel/DYy_0gFsH_a/" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <span class="yazi">Vakıf Katılım</span>
+            <span class="rozet"><span>Watch on Instagram ↗</span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Vakıf Katılım <small>Film 2</small></span>
+            <span class="etiket is__kunye">Dir. Kerem Yükseloğlu</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ON SET ============ -->
+  <section class="bolum wrap" id="onset">
+    <div class="bolum__bas">
+      <h2>On set</h2>
+      <span class="etiket">Between the takes</span>
+    </div>
+
+    <div class="kontak" id="kontak">
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 1">
+        <img src="gorseller/set-01.jpg" alt="On the period set, between takes" loading="lazy">
+        <figcaption>01</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 2">
+        <img src="gorseller/set-02.jpg" alt="Fabrics being dressed on the standing set" loading="lazy">
+        <figcaption>02</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 3">
+        <img src="gorseller/set-03.jpg" alt="Slate before a take" loading="lazy">
+        <figcaption>03</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 4">
+        <img src="gorseller/set-04.jpg" alt="Blocking a shot with the camera team" loading="lazy">
+        <figcaption>04</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 5">
+        <img src="gorseller/set-05.jpg" alt="Night exterior in the woods" loading="lazy">
+        <figcaption>05</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 6">
+        <img src="gorseller/set-06.jpg" alt="Location shoot on open ground" loading="lazy">
+        <figcaption>06</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 7">
+        <img src="gorseller/set-07.jpg" alt="At the monitor during golden hour" loading="lazy">
+        <figcaption>07</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 8">
+        <img src="gorseller/set-08.jpg" alt="Station location, resetting between takes" loading="lazy">
+        <figcaption>08</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 9">
+        <img src="gorseller/set-09.jpg" alt="Street unit waiting on the next setup" loading="lazy">
+        <figcaption>09</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 10">
+        <img src="gorseller/set-10.jpg" alt="Between setups in the shade" loading="lazy">
+        <figcaption>10</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 11">
+        <img src="gorseller/set-11.jpg" alt="Fitting session with a cast member" loading="lazy">
+        <figcaption>11</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 12">
+        <img src="gorseller/set-12.jpg" alt="Costume room with the rail" loading="lazy">
+        <figcaption>12</figcaption>
+      </figure>
+      <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 13">
+        <img src="gorseller/set-13.jpg" alt="Coffee break on location" loading="lazy">
+        <figcaption>13</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="iletisim wrap" id="contact">
+    <div class="iletisim__grid">
+      <div class="gir">
+        <h2>Let's talk about<br><em>your project.</em></h2>
+        <p>Send a short note with the scope and shooting dates, and we'll take it from there.</p>
+      </div>
+
+      <div class="kanallar gir">
+        <a class="kanal" href="mailto:mervect8@gmail.com">
+          <span>
+            <span class="etiket">Email</span><br>
+            <span class="kanal__deger">mervect8@gmail.com</span>
+          </span>
+          <span class="kanal__ok" aria-hidden="true">↗</span>
+        </a>
+        <a class="kanal" href="https://wa.me/905544820279" target="_blank" rel="noopener">
+          <span>
+            <span class="etiket">Phone &amp; WhatsApp</span><br>
+            <span class="kanal__deger">+90 554 482 02 79</span>
+          </span>
+          <span class="kanal__ok" aria-hidden="true">↗</span>
+        </a>
+        <a class="kanal" href="https://instagram.com/mervegksu" target="_blank" rel="noopener">
+          <span>
+            <span class="etiket">Instagram</span><br>
+            <span class="kanal__deger">@mervegksu</span>
+          </span>
+          <span class="kanal__ok" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="alt wrap">
+  <span class="etiket">© 2026 Merve Göksu</span>
+  <span class="etiket">İstanbul, Türkiye</span>
+</footer>
+
+<!-- büyütme katmanı -->
+<div class="buyut" id="buyut" role="dialog" aria-modal="true" aria-label="Photograph">
+  <button class="buyut__kapat" id="kapat" aria-label="Close">✕</button>
+  <button class="buyut__ok buyut__ok--geri" id="geri" aria-label="Previous">‹</button>
+  <img id="buyutImg" src="" alt="">
+  <button class="buyut__ok buyut__ok--ileri" id="ileri" aria-label="Next">›</button>
+  <span class="buyut__sayac" id="sayac"></span>
+</div>
+
+<script>
+  // Kapağı geçince üst bar zemin kazansın
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function(){
+    bar.classList.toggle('kaydi', window.scrollY > 40);
+  }, { passive:true });
+
+  // Karelere tıklayınca video yerinde açılsın
+  document.querySelectorAll('.is[data-yt]').forEach(function(kart){
+    kart.addEventListener('click', function(olay){
+      olay.preventDefault();
+      var id = kart.getAttribute('data-yt');
+      var kare = kart.querySelector('.is__kare');
+      kare.innerHTML =
+        '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0" title="Video" allow="accelerometer; autoplay; ' +
+        'clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      kart.removeAttribute('data-yt');
+    });
+  });
+
+  // Set fotoğraflarını büyütme
+  (function(){
+    var kareler = Array.prototype.slice.call(document.querySelectorAll('.kontak .kare img'));
+    var katman = document.getElementById('buyut');
+    var buyukImg = document.getElementById('buyutImg');
+    var sayac = document.getElementById('sayac');
+    var sira = 0;
+
+    function goster(i){
+      sira = (i + kareler.length) % kareler.length;
+      buyukImg.src = kareler[sira].src;
+      buyukImg.alt = kareler[sira].alt;
+      sayac.textContent = String(sira + 1).padStart(2,'0') + ' / ' + String(kareler.length).padStart(2,'0');
+      katman.classList.add('acik');
+      document.body.style.overflow = 'hidden';
+    }
+    function kapa(){
+      katman.classList.remove('acik');
+      document.body.style.overflow = '';
+    }
+
+    kareler.forEach(function(img, i){
+      var kare = img.closest('.kare');
+      kare.addEventListener('click', function(){ goster(i); });
+      kare.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goster(i); }
+      });
+    });
+
+    document.getElementById('kapat').addEventListener('click', function(e){ e.stopPropagation(); kapa(); });
+    document.getElementById('geri').addEventListener('click', function(e){ e.stopPropagation(); goster(sira - 1); });
+    document.getElementById('ileri').addEventListener('click', function(e){ e.stopPropagation(); goster(sira + 1); });
+    katman.addEventListener('click', kapa);
+    buyukImg.addEventListener('click', function(e){ e.stopPropagation(); });
+
+    document.addEventListener('keydown', function(e){
+      if (!katman.classList.contains('acik')) return;
+      if (e.key === 'Escape') kapa();
+      if (e.key === 'ArrowLeft') goster(sira - 1);
+      if (e.key === 'ArrowRight') goster(sira + 1);
+    });
+  })();
+
+  // Aşağı kaydırdıkça içerik yerine otursun
+  var azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var girenler = document.querySelectorAll('.gir');
+
+  if (azHareket || !('IntersectionObserver' in window)) {
+    girenler.forEach(function(el){ el.classList.add('icerde'); });
+  } else {
+    var gozcu = new IntersectionObserver(function(kayitlar){
+      kayitlar.forEach(function(kayit){
+        if (kayit.isIntersecting) {
+          kayit.target.classList.add('icerde');
+          gozcu.unobserve(kayit.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -60px 0px' });
+
+    girenler.forEach(function(el, i){
+      el.style.transitionDelay = (i % 3) * 90 + 'ms';
+      gozcu.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>
