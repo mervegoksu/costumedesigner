@@ -322,6 +322,25 @@
   .is__kunye{ display:block; margin-top:0.35rem; }
   .is__kunye b{ font-weight:400; color:var(--terzi); }
 
+  /* ---------- DİKEY SOSYAL FİLMLER ---------- */
+  .dikey{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:clamp(1rem,2.5vw,1.75rem);
+    max-width:660px;
+    margin-top:clamp(2.25rem,4vw,3rem);
+    padding-top:clamp(1.5rem,3vw,2rem);
+    border-top:1px solid var(--line);
+  }
+  .dikeyKart video{
+    width:100%;
+    aspect-ratio:9/16;
+    display:block;
+    background:var(--ink-2);
+    object-fit:cover;
+  }
+  .dikeyKart .is__etiket{ margin-top:0.85rem; }
+
   /* ---------- ON SET: KONTAK BASKI ---------- */
   .kontak{
     border-top:1px solid var(--line);
@@ -707,30 +726,29 @@
           </div>
         </a>
 
-        <a class="is is--bos gir" style="--sarkma:3.25rem"
-           href="https://www.instagram.com/reel/DYrTA1AMBg0/" target="_blank" rel="noopener">
-          <div class="is__kare">
-            <span class="yazi">Vakıf Katılım</span>
-            <span class="rozet"><span>Watch on Instagram ↗</span></span>
-          </div>
-          <div class="is__etiket">
+      </div>
+
+      <!-- dikey formatta çekilen sosyal medya filmleri -->
+      <div class="dikey">
+        <figure class="dikeyKart gir">
+          <video controls playsinline preload="none" poster="gorseller/vakif-01.jpg">
+            <source src="videolar/vakif-01.mp4" type="video/mp4">
+          </video>
+          <figcaption class="is__etiket">
             <span class="is__ad">Vakıf Katılım <small>Film 1</small></span>
             <span class="etiket is__kunye">Dir. Kerem Yükseloğlu</span>
-          </div>
-        </a>
+          </figcaption>
+        </figure>
 
-        <a class="is is--bos gir" style="--sarkma:2.25rem"
-           href="https://www.instagram.com/reel/DYy_0gFsH_a/" target="_blank" rel="noopener">
-          <div class="is__kare">
-            <span class="yazi">Vakıf Katılım</span>
-            <span class="rozet"><span>Watch on Instagram ↗</span></span>
-          </div>
-          <div class="is__etiket">
+        <figure class="dikeyKart gir">
+          <video controls playsinline preload="none" poster="gorseller/vakif-02.jpg">
+            <source src="videolar/vakif-02.mp4" type="video/mp4">
+          </video>
+          <figcaption class="is__etiket">
             <span class="is__ad">Vakıf Katılım <small>Film 2</small></span>
             <span class="etiket is__kunye">Dir. Kerem Yükseloğlu</span>
-          </div>
-        </a>
-
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
