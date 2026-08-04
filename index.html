@@ -312,6 +312,18 @@
     font-size:1.5rem; color:var(--muted);
   }
 
+  /* yayınlanmamış iş — kare duruyor ama tıklanmıyor */
+  .is--yakinda .is__kare img{
+    filter:grayscale(0.4) contrast(1.02) brightness(0.85);
+  }
+  .is--yakinda .is__kare::after{
+    content:"";
+    position:absolute; inset:auto 0 0 0; height:55%;
+    background:linear-gradient(to top, color-mix(in srgb, var(--ink) 78%, transparent), transparent);
+    pointer-events:none;
+  }
+  .is--yakinda .rozet span{ border-color:var(--terzi); color:var(--chalk); }
+
   .is__etiket{ margin-top:0.85rem; padding-top:0.7rem; border-top:1px solid var(--line); }
   .is__ad{ display:block; font-family:var(--display); font-size:1.125rem; line-height:1.3; }
   .is__ad small{
@@ -579,15 +591,19 @@
           </div>
         </a>
 
-        <div class="is is--bos gir" style="--sarkma:5rem">
+        <a class="is gir" style="--sarkma:5rem" data-yt="PjpUgQzkehQ"
+           href="https://youtu.be/PjpUgQzkehQ" target="_blank" rel="noopener">
           <div class="is__kare">
-            <span class="yazi">Styling</span>
+            <img src="https://i.ytimg.com/vi/PjpUgQzkehQ/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/PjpUgQzkehQ/hqdefault.jpg'"
+                 alt="Paramparça — clip" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
           </div>
           <div class="is__etiket">
             <span class="is__ad">Paramparça</span>
             <span class="etiket is__kunye">Cast styling</span>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -638,14 +654,15 @@
           </div>
         </a>
 
-        <div class="is is--bos gir" style="--sarkma:2.25rem">
+        <div class="is is--yakinda gir" style="--sarkma:2.25rem">
           <div class="is__kare">
-            <span class="yazi">In post</span>
-            <span class="rozet"><span>Unreleased</span></span>
+            <img src="gorseller/enmutlu.jpg"
+                 alt="En Mutlu Günümde — slate on set" loading="lazy">
+            <span class="rozet"><span>In post · Not yet released</span></span>
           </div>
           <div class="is__etiket">
             <span class="is__ad">En Mutlu Günümde</span>
-            <span class="etiket is__kunye">Dir. Erkan Tunç</span>
+            <span class="etiket is__kunye">Dir. Erkan Tunç · Currently in post-production</span>
           </div>
         </div>
 
