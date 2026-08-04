@@ -408,17 +408,18 @@
   /* ---------- ON SET: KONTAK BASKI ---------- */
   .kontak{
     border-top:1px solid var(--line);
-    padding-top:clamp(1.5rem,3vw,2.25rem);
-    column-count:1;
-    column-gap:clamp(0.75rem,1.6vw,1.25rem);
+    padding-top:clamp(1.25rem,2.5vw,1.75rem);
+    column-count:2;
+    column-gap:clamp(0.5rem,1vw,0.85rem);
   }
-  @media (min-width:640px){ .kontak{ column-count:2; } }
-  @media (min-width:1060px){ .kontak{ column-count:3; } }
+  @media (min-width:640px){ .kontak{ column-count:3; } }
+  @media (min-width:1060px){ .kontak{ column-count:4; } }
+  @media (min-width:1300px){ .kontak{ column-count:5; } }
 
   .kare{
     position:relative;
     break-inside:avoid;
-    margin-bottom:clamp(0.75rem,1.6vw,1.25rem);
+    margin-bottom:clamp(0.5rem,1vw,0.85rem);
     cursor:zoom-in;
     background:var(--ink-2);
     overflow:hidden;
@@ -434,9 +435,9 @@
   /* kontak baskıdaki kare numarası */
   .kare figcaption{
     position:absolute; top:0; left:0;
-    font-size:0.625rem; letter-spacing:0.18em;
+    font-size:0.5625rem; letter-spacing:0.16em;
     color:var(--chalk);
-    padding:0.4rem 0.6rem;
+    padding:0.3rem 0.45rem;
     background:color-mix(in srgb, var(--ink) 62%, transparent);
     backdrop-filter:blur(3px);
     opacity:0; transform:translateY(-4px);
