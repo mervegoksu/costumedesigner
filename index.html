@@ -144,7 +144,7 @@
     gap:0.55rem clamp(0.9rem,2vw,1.5rem);
     margin-top:clamp(1.5rem,4vh,2.5rem);
   }
-  .roller span{ font-size:0.75rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--chalk); }
+  .roller span{ font-size:clamp(0.6rem, 0.55rem + 0.28vw, 0.72rem); letter-spacing:0.18em; text-transform:uppercase; color:var(--chalk); max-width:52ch; }
   .roller i{ display:block; width:22px; height:1px; background:var(--terzi); opacity:0.8; }
 
   .slogan{
@@ -333,6 +333,125 @@
   }
   .is__kunye{ display:block; margin-top:0.35rem; }
   .is__kunye b{ font-weight:400; color:var(--terzi); }
+
+  /* ---------- VİZYON & MİSYON ---------- */
+  .vizyon{
+    display:grid; grid-template-columns:1fr;
+    gap:0;
+    margin-top:clamp(2.5rem,5vh,4rem);
+    border-top:1px solid var(--line);
+  }
+  @media (min-width:820px){ .vizyon{ grid-template-columns:repeat(2,1fr); } }
+
+  .vizyon__blok{
+    padding:clamp(1.75rem,3.5vw,2.75rem) 0;
+    border-top:1px solid var(--line);
+  }
+  .vizyon__blok:first-child{ border-top:0; }
+  @media (min-width:820px){
+    .vizyon__blok{
+      padding:clamp(1.75rem,3vw,2.5rem) clamp(1.5rem,3vw,2.75rem);
+      border-top:0;
+      border-left:1px solid var(--line);
+    }
+    .vizyon__blok:first-child{ border-left:0; padding-left:0; }
+    .vizyon__blok:last-child{ padding-right:0; }
+  }
+  .vizyon__blok .etiket{ display:block; margin-bottom:0.9rem; }
+  .vizyon__blok p{
+    margin:0;
+    color:var(--muted);
+    font-size:clamp(0.875rem, 0.82rem + 0.28vw, 0.9375rem);
+    line-height:1.7;
+    max-width:46ch;
+  }
+
+  /* ---------- PRENS VİTRİN ---------- */
+  .vitrin{
+    display:grid; grid-template-columns:1fr;
+    gap:clamp(2rem,4vw,3.5rem);
+    padding-top:clamp(1.5rem,3vw,2rem);
+    border-top:1px solid var(--line);
+  }
+  @media (min-width:860px){
+    .vitrin{ grid-template-columns:minmax(0,320px) minmax(0,1fr); align-items:start; }
+  }
+
+  /* afiş */
+  .vitrin__afiş .stilKart{ width:100%; }
+  .vitrin__afiş .stilKart img{ width:100%; height:auto; filter:none; }
+  .vitrin__afiş .stilKart::before,
+  .vitrin__afiş .stilKart::after{
+    border-color:var(--terzi);
+  }
+
+  /* sağ kolon */
+  .vitrin__baslik{
+    display:flex; align-items:baseline; flex-wrap:wrap;
+    gap:0.5rem 1rem;
+    margin-bottom:0.5rem;
+  }
+  .vitrin__baslik h3{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(1.75rem,3.5vw,2.5rem);
+    line-height:1; letter-spacing:-0.02em;
+    margin:0;
+  }
+  .vitrin__pozisyon{
+    display:inline-block;
+    font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--terzi);
+    margin-bottom:1.1rem;
+  }
+  .vitrin__metin{
+    margin:0 0 0.85rem;
+    color:var(--muted);
+    font-size:clamp(0.875rem,0.83rem + 0.22vw,0.9375rem);
+    line-height:1.7;
+    max-width:52ch;
+  }
+
+  /* fragman kutusu */
+  .vitrin__video{
+    position:relative;
+    margin-top:1.5rem;
+    background:var(--ink-2);
+    overflow:hidden;
+    max-width:480px;
+  }
+  .vitrin__video img{
+    width:100%; height:auto; display:block;
+    filter:grayscale(0.5) brightness(0.7);
+    transition:filter .5s ease;
+  }
+  .vitrin__video:hover img{ filter:grayscale(0) brightness(0.85); }
+  .vitrin__video iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .vitrin__oynat{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:0.5rem;
+    background:none; border:none;
+    color:var(--chalk);
+    cursor:pointer;
+    font-family:var(--body); font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+  }
+  .vitrin__oynat span{
+    display:grid; place-items:center;
+    width:52px; height:52px; border-radius:50%;
+    border:1px solid color-mix(in srgb, var(--chalk) 55%, transparent);
+    background:color-mix(in srgb, var(--ink) 45%, transparent);
+    backdrop-filter:blur(3px);
+    font-size:1.1rem;
+    transition:background .3s ease, border-color .3s ease, transform .3s ease;
+  }
+  .vitrin__oynat:hover span{
+    background:var(--terzi); border-color:var(--terzi); transform:scale(1.06);
+  }
+  .vitrin__yonetmen{ display:block; margin-top:1rem; }
 
   /* ---------- AFİŞ + SET KARELERİ ---------- */
   .stiller{
@@ -560,16 +679,14 @@
       <h1 class="kapak__ad">Merve<em>Göksu</em></h1>
 
       <div class="roller">
-        <span>Costume Supervisor</span>
-        <i aria-hidden="true"></i>
-        <span>Costume Designer</span>
+        <span>Costume Supervisor &amp; Costume Designer specializing in Film, Television, Commercials and Music Videos</span>
       </div>
 
-      <p class="slogan">“Creating characters through costume.”</p>
+      <p class="slogan">Bringing characters to life through thoughtful costume design, visual storytelling and meticulous costume supervision.</p>
     </div>
 
     <div class="kapak__alt wrap">
-      <span class="etiket">İstanbul, Türkiye</span>
+      <span class="etiket">Based in İstanbul, Türkiye</span>
       <div class="kapak__baglar">
         <a href="tel:+905544820279">+90 554 482 02 79</a>
         <a href="mailto:mervect8@gmail.com">mervect8@gmail.com</a>
@@ -603,6 +720,17 @@
         <li>On-set Costume Management</li>
       </ul>
     </div>
+
+    <div class="vizyon gir">
+      <div class="vizyon__blok">
+        <span class="etiket">Vision</span>
+        <p>I believe costume is far more than clothing—it is a powerful storytelling tool that reveals a character's identity, history, emotions, and transformation. My vision is to contribute to national and international film and television productions by combining creativity, strategic thinking, and meticulous attention to detail. I strive to create visually compelling characters that enrich the narrative and leave a lasting impression while continuously evolving alongside the ever-changing landscape of the entertainment industry.</p>
+      </div>
+      <div class="vizyon__blok">
+        <span class="etiket">Mission</span>
+        <p>My mission is to translate scripts into authentic visual identities through thoughtful costume design and supervision. By understanding each project's creative vision, I ensure that every costume supports character development, narrative continuity, and the overall visual language of the production. From pre-production planning and costume breakdowns to fittings, continuity, and on-set management, I am committed to delivering organized, collaborative, and high-quality work that enhances every production I am part of.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ============ SELECTED WORKS ============ -->
@@ -614,21 +742,47 @@
 
     <div class="grup">
       <div class="grup__bas"><span class="etiket">Television &amp; digital</span></div>
-      <div class="askilik">
 
-        <a class="is gir" style="--sarkma:3.5rem" data-yt="9uCerXGjo_Q"
-           href="https://youtu.be/9uCerXGjo_Q" target="_blank" rel="noopener">
-          <div class="is__kare">
+      <!-- ===== PRENS VITRIN ===== -->
+      <div class="vitrin gir">
+
+        <!-- Sol: afiş -->
+        <div class="vitrin__afiş">
+          <button class="stilKart" type="button"
+                  data-fotolar="gorseller/prens-afiş.jpg|gorseller/prens-01.jpg|gorseller/prens-02.jpg|gorseller/prens-03.jpg|gorseller/prens-04.jpg|gorseller/prens-05.jpg|gorseller/prens-06.jpg|gorseller/prens-07.jpg|gorseller/prens-08.jpg|gorseller/prens-09.jpg|gorseller/prens-10.jpg|gorseller/prens-11.jpg|gorseller/prens-12.jpg|gorseller/prens-13.jpg|gorseller/prens-14.jpg|gorseller/prens-15.jpg|gorseller/prens-16.jpg|gorseller/prens-17.jpg|gorseller/prens-18.jpg|gorseller/prens-19.jpg|gorseller/prens-20.jpg|gorseller/prens-21.jpg|gorseller/prens-22.jpg|gorseller/prens-23.jpg|gorseller/prens-24.jpg|gorseller/prens-25.jpg|gorseller/prens-26.jpg|gorseller/prens-27.jpg|gorseller/prens-28.jpg|gorseller/prens-29.jpg|gorseller/prens-30.jpg|gorseller/prens-31.jpg|gorseller/prens-32.jpg|gorseller/prens-33.jpg|gorseller/prens-34.jpg|gorseller/prens-35.jpg|gorseller/prens-36.jpg|gorseller/prens-37.jpg|gorseller/prens-38.jpg|gorseller/prens-39.jpg|gorseller/prens-40.jpg|gorseller/prens-41.jpg|gorseller/prens-42.jpg|gorseller/prens-43.jpg|gorseller/prens-44.jpg|gorseller/prens-45.jpg|gorseller/prens-46.jpg|gorseller/prens-47.jpg|gorseller/prens-48.jpg|gorseller/prens-49.jpg|gorseller/prens-50.jpg|gorseller/prens-51.jpg|gorseller/prens-52.jpg|gorseller/prens-53.jpg|gorseller/prens-54.jpg|gorseller/prens-55.jpg|gorseller/prens-56.jpg|gorseller/prens-57.jpg|gorseller/prens-58.jpg|gorseller/prens-59.jpg|gorseller/prens-60.jpg"
+                  aria-label="Browse Prens key art">
+            <img src="gorseller/prens-afiş.jpg" alt="Prens Season 3 — key art" loading="lazy">
+            <span class="rozet"><span>61 photos ↗</span></span>
+          </button>
+        </div>
+
+        <!-- Sağ: açıklama + video -->
+        <div class="vitrin__icerik">
+          <div class="vitrin__baslik">
+            <h3>Prens</h3>
+            <span class="etiket">Max Original · Season 3</span>
+          </div>
+          <span class="vitrin__pozisyon">Costume Supervisor</span>
+          <p class="vitrin__metin">As the Costume Supervisor for Prens Season 3, I managed the costume department throughout the entire production process, from script breakdown and pre-production planning to the completion of principal photography. My responsibilities included coordinating the costume team, overseeing costume continuity, organizing fittings, and managing all on-set costume operations.</p>
+          <p class="vitrin__metin">In addition to my supervisory role, I designed the costumes for the Ottoman Empire episode, the pirate characters, the Tin Man (Prince Tin Man) costume, the supporting cast, and the battle sequences, overseeing their development from concept to on-set execution. Working closely with the creative team, I developed costume solutions that enhanced each character's identity while supporting the visual language and storytelling of the series.</p>
+
+          <!-- Fragman -->
+          <div class="vitrin__video" id="vitrinVideoWrap">
             <img src="https://i.ytimg.com/vi/9uCerXGjo_Q/maxresdefault.jpg"
                  onerror="this.src='https://i.ytimg.com/vi/9uCerXGjo_Q/hqdefault.jpg'"
-                 alt="Prens — trailer" loading="lazy">
-            <span class="oynat" aria-hidden="true"><span></span></span>
+                 alt="Prens Season 3 — official trailer" loading="lazy">
+            <button class="vitrin__oynat" data-yt="9uCerXGjo_Q" aria-label="Play trailer">
+              <span aria-hidden="true">▶</span> Watch Trailer
+            </button>
           </div>
-          <div class="is__etiket">
-            <span class="is__ad">Prens <small>BluTV · Season 3</small></span>
-            <span class="etiket is__kunye">Dir. Bülent İşbilen · <b>Costume Supervisor</b></span>
-          </div>
-        </a>
+
+          <span class="etiket vitrin__yonetmen">Dir. Bülent İşbilen</span>
+        </div>
+
+      </div>
+      <!-- ===== /PRENS VITRIN ===== -->
+
+      <div class="askilik" style="margin-top:clamp(2.5rem,5vh,4rem); padding-top:clamp(1.5rem,3vw,2rem); border-top:1px solid var(--line);">
 
         <a class="is gir" style="--sarkma:2.25rem" data-yt="eTb5sFNWnXA"
            href="https://youtu.be/eTb5sFNWnXA" target="_blank" rel="noopener">
@@ -641,48 +795,6 @@
           <div class="is__etiket">
             <span class="is__ad">Karşılaşmalar <small>Exxen · Season 2</small></span>
             <span class="etiket is__kunye">Dir. Gökdeniz Uslu · <b>Costume Designer</b></span>
-          </div>
-        </a>
-
-        <a class="is gir" style="--sarkma:5rem" data-yt="PjpUgQzkehQ"
-           href="https://youtu.be/PjpUgQzkehQ" target="_blank" rel="noopener">
-          <div class="is__kare">
-            <img src="https://i.ytimg.com/vi/PjpUgQzkehQ/maxresdefault.jpg"
-                 onerror="this.src='https://i.ytimg.com/vi/PjpUgQzkehQ/hqdefault.jpg'"
-                 alt="Paramparça — clip" loading="lazy">
-            <span class="oynat" aria-hidden="true"><span></span></span>
-          </div>
-          <div class="is__etiket">
-            <span class="is__ad">Paramparça</span>
-            <span class="etiket is__kunye">Cast styling</span>
-          </div>
-        </a>
-
-        <a class="is gir" style="--sarkma:2.75rem" data-yt="7l8A7_8v4a0"
-           href="https://youtu.be/7l8A7_8v4a0" target="_blank" rel="noopener">
-          <div class="is__kare">
-            <img src="https://i.ytimg.com/vi/7l8A7_8v4a0/maxresdefault.jpg"
-                 onerror="this.src='https://i.ytimg.com/vi/7l8A7_8v4a0/hqdefault.jpg'"
-                 alt="Yuvamdaki Düşman — trailer" loading="lazy">
-            <span class="oynat" aria-hidden="true"><span></span></span>
-          </div>
-          <div class="is__etiket">
-            <span class="is__ad">Yuvamdaki Düşman</span>
-            <span class="etiket is__kunye">Dir. Müge Uğurlar</span>
-          </div>
-        </a>
-
-        <a class="is gir" style="--sarkma:4.25rem" data-yt="90JGDgXz0Nk"
-           href="https://youtu.be/90JGDgXz0Nk" target="_blank" rel="noopener">
-          <div class="is__kare">
-            <img src="https://i.ytimg.com/vi/90JGDgXz0Nk/maxresdefault.jpg"
-                 onerror="this.src='https://i.ytimg.com/vi/90JGDgXz0Nk/hqdefault.jpg'"
-                 alt="Babamın Günahları — trailer" loading="lazy">
-            <span class="oynat" aria-hidden="true"><span></span></span>
-          </div>
-          <div class="is__etiket">
-            <span class="is__ad">Babamın Günahları</span>
-            <span class="etiket is__kunye">Dir. Abdullah Oğuz</span>
           </div>
         </a>
 
@@ -985,6 +1097,21 @@
 </div>
 
 <script>
+  // Prens vitrin fragmanı
+  document.querySelectorAll('.vitrin__oynat[data-yt]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-yt');
+      var wrap = btn.closest('.vitrin__video');
+      var h = wrap.offsetHeight;
+      wrap.style.height = h + 'px';
+      wrap.innerHTML =
+        '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&color=white" ' +
+        'title="Prens Season 3 — trailer" allow="accelerometer; autoplay; ' +
+        'clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    });
+  });
+
   // Kapağı geçince üst bar zemin kazansın
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){
