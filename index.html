@@ -451,6 +451,32 @@
   .vitrin__oynat:hover span{
     background:var(--terzi); border-color:var(--terzi); transform:scale(1.06);
   }
+  /* Karşılaşmalar vitrini aynalanmış — afiş sağda */
+  @media (min-width:860px){
+    .vitrin--ters{ grid-template-columns:minmax(0,1fr) minmax(0,320px); }
+    .vitrin--ters .vitrin__afiş{ order:2; }
+    .vitrin--ters .vitrin__icerik{ order:1; }
+    .vitrin--ters .vitrin__afiş .stilKart::before{ transform:translate(-10px,-10px); }
+    .vitrin--ters .vitrin__afiş .stilKart::after{ transform:translate(-20px,-20px); }
+    .vitrin--ters .vitrin__afiş .stilKart:hover::before,
+    .vitrin--ters .vitrin__afiş .stilKart:focus-visible::before{ transform:translate(-14px,-14px); }
+    .vitrin--ters .vitrin__afiş .stilKart:hover::after,
+    .vitrin--ters .vitrin__afiş .stilKart:focus-visible::after{ transform:translate(-28px,-28px); }
+  }
+
+  /* gömülü oynatıcı çalışmazsa çıkış yolu */
+  .vitrin__yedek{
+    display:inline-block;
+    margin-top:0.75rem;
+    font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .vitrin__yedek:hover{ color:var(--terzi); border-bottom-color:var(--terzi); }
+
   .vitrin__yonetmen{ display:block; margin-top:1rem; }
 
   /* ---------- AFİŞ + SET KARELERİ ---------- */
@@ -782,39 +808,47 @@
       </div>
       <!-- ===== /PRENS VITRIN ===== -->
 
-      <div class="askilik" style="margin-top:clamp(2.5rem,5vh,4rem); padding-top:clamp(1.5rem,3vw,2rem); border-top:1px solid var(--line);">
+      <!-- ===== KARŞILAŞMALAR VITRIN ===== -->
+      <div class="vitrin vitrin--ters gir" style="margin-top:clamp(2.5rem,5vh,4rem);">
 
-        <a class="is gir" style="--sarkma:2.25rem" data-yt="eTb5sFNWnXA"
-           href="https://youtu.be/eTb5sFNWnXA" target="_blank" rel="noopener">
-          <div class="is__kare">
+        <!-- Sol: afiş -->
+        <div class="vitrin__afiş">
+          <button class="stilKart" type="button"
+                  data-fotolar="gorseller/kars-afiş.jpg|gorseller/kars-01.jpg|gorseller/kars-02.jpg|gorseller/kars-03.jpg|gorseller/kars-04.jpg|gorseller/kars-05.jpg|gorseller/kars-06.jpg|gorseller/kars-07.jpg|gorseller/kars-08.jpg|gorseller/kars-09.jpg|gorseller/kars-10.jpg|gorseller/kars-11.jpg"
+                  aria-label="Browse Karşılaşmalar key art and stills">
+            <img src="gorseller/kars-afiş.jpg" alt="Karşılaşmalar Season 3 — key art" loading="lazy">
+            <span class="rozet"><span>12 photos ↗</span></span>
+          </button>
+        </div>
+
+        <!-- Sağ: açıklama + video -->
+        <div class="vitrin__icerik">
+          <div class="vitrin__baslik">
+            <h3>Karşılaşmalar</h3>
+            <span class="etiket">Exxen · Season 3</span>
+          </div>
+          <span class="vitrin__pozisyon">Costume Designer</span>
+          <p class="vitrin__metin">As the Costume Designer for Karşılaşmalar Season 3, I was responsible for the complete costume design of the entire season, leading the creative process from concept development to on-set execution. For each episode, I created distinctive costume concepts tailored to its unique story, visual tone, and character development.</p>
+          <p class="vitrin__metin">Throughout the season, I collaborated with a wide range of guest stars and well-known actors, designing costumes for diverse narratives, character profiles, lifestyles, and visual aesthetics. My responsibilities included script analysis, character styling, costume research, fittings, and overseeing the implementation of each design, ensuring that every episode had its own strong visual identity while supporting the overall storytelling.</p>
+
+          <!-- Fragman -->
+          <div class="vitrin__video">
             <img src="https://i.ytimg.com/vi/eTb5sFNWnXA/maxresdefault.jpg"
                  onerror="this.src='https://i.ytimg.com/vi/eTb5sFNWnXA/hqdefault.jpg'"
-                 alt="Karşılaşmalar — trailer" loading="lazy">
-            <span class="oynat" aria-hidden="true"><span></span></span>
+                 alt="Karşılaşmalar Season 3 — season trailer" loading="lazy">
+            <button class="vitrin__oynat" data-yt="eTb5sFNWnXA" aria-label="Play trailer">
+              <span aria-hidden="true">▶</span> Watch Trailer
+            </button>
           </div>
-          <div class="is__etiket">
-            <span class="is__ad">Karşılaşmalar <small>Exxen · Season 2</small></span>
-            <span class="etiket is__kunye">Dir. Gökdeniz Uslu · <b>Costume Designer</b></span>
-          </div>
-        </a>
+          <a class="vitrin__yedek" href="https://youtu.be/eTb5sFNWnXA" target="_blank" rel="noopener">
+            Trouble playing? Open on YouTube ↗
+          </a>
 
-      </div>
-
-      <!-- Karşılaşmalar afiş + set kareleri -->
-      <div class="stiller">
-        <button class="stilKart gir" type="button"
-                data-fotolar="gorseller/kars-01.jpg|gorseller/kars-02.jpg|gorseller/kars-03.jpg|gorseller/kars-04.jpg"
-                aria-label="Browse Karşılaşmalar key art and stills">
-          <img src="gorseller/kars-01.jpg" alt="Karşılaşmalar — key art" loading="lazy">
-          <span class="rozet"><span>Key art + 3 stills ↗</span></span>
-        </button>
-
-        <div class="stiller__not gir">
-          <span class="etiket">Karşılaşmalar · Exxen</span>
-          <p>Key art and production stills from the second season, where I worked as Costume Designer.</p>
-          <span class="etiket stiller__ipucu">Tap the poster to browse</span>
+          <span class="etiket vitrin__yonetmen">Dir. Gökdeniz Uslu</span>
         </div>
+
       </div>
+      <!-- ===== /KARŞILAŞMALAR VITRIN ===== -->
     </div>
 
     <div class="grup">
