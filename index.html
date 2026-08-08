@@ -9,7 +9,7 @@
 
 <meta property="og:title" content="Merve Göksu — Costume Supervisor &amp; Costume Designer">
 <meta property="og:description" content="Creating characters through costume.">
-<meta property="og:image" content="kapak.jpg">
+<meta property="og:image" content="gorseller/kapak.jpg">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@
   .kapak__foto{
     position:absolute; inset:0; z-index:-2;
     background-color:var(--ink-2);
-    background-image:url("kapak.jpg"),
+    background-image:url("gorseller/kapak.jpg"),
       radial-gradient(120% 90% at 70% 20%, #2E2434 0%, #17131A 70%);
     background-size:cover;
     background-position:center 30%;
@@ -682,57 +682,31 @@
   }
 </style>
 <script>
-/* Görsel yolu esnekliği: kök dizinde bulamazsa gorseller/ altında dener,
-   ayrıca Türkçe karakterli adların NFC/NFD varyantlarını dener. */
+/* Yedek yol denemesi: dosya adinin NFC/NFD yazimi ve gorseller/ onegi olmadan. */
 (function(){
   function adaylar(u){
     var liste = [u];
     function ekle(v){ if(v && liste.indexOf(v) < 0) liste.push(v); }
-    if(/^https?:/i.test(u)) return liste;           // dış kaynaklara dokunma
+    if(/^https?:/i.test(u)) return liste;
     try{
       var ham = decodeURIComponent(u);
       ekle(encodeURI(ham.normalize('NFC')));
       ekle(encodeURI(ham.normalize('NFD')));
     }catch(e){}
-    liste.slice().forEach(function(v){
-      if(v.indexOf('gorseller/') > -1) return;
-      var k = v.lastIndexOf('/');
-      ekle(k < 0 ? 'gorseller/' + v : v.slice(0, k + 1) + 'gorseller/' + v.slice(k + 1));
-    });
+    liste.slice().forEach(function(v){ ekle(v.replace('gorseller/', '')); });
     return liste;
   }
-  document.addEventListener('error', function(olay){
-    var el = olay.target;
+  document.addEventListener('error', function(o){
+    var el = o.target;
     if(!el || el.tagName !== 'IMG') return;
     if(!el.__yollar){ el.__yollar = adaylar(el.getAttribute('src') || ''); el.__sira = 0; }
     el.__sira++;
     if(el.__sira < el.__yollar.length) el.setAttribute('src', el.__yollar[el.__sira]);
   }, true);
-  document.addEventListener('load', function(olay){
-    var el = olay.target;
+  document.addEventListener('load', function(o){
+    var el = o.target;
     if(el && el.tagName === 'IMG'){ el.__yollar = null; el.__sira = 0; }
   }, true);
-
-  function hazir(){
-    var kapak = document.querySelector('.kapak__foto');
-    if(kapak){
-      var dene = new Image();
-      dene.onerror = function(){
-        kapak.style.backgroundImage =
-          'url("gorseller/kapak.jpg"), radial-gradient(120% 90% at 70% 20%, #2E2434 0%, #17131A 70%)';
-      };
-      dene.src = 'kapak.jpg';
-    }
-    document.querySelectorAll('video[poster]').forEach(function(v){
-      var p = v.getAttribute('poster');
-      if(!p || p.indexOf('gorseller/') > -1) return;
-      var d = new Image();
-      d.onerror = function(){ v.setAttribute('poster', 'gorseller/' + p); };
-      d.src = p;
-    });
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hazir);
-  else hazir();
 })();
 </script>
 </head>
@@ -829,9 +803,9 @@
         <!-- Sol: afiş -->
         <div class="vitrin__afiş">
           <button class="stilKart" type="button"
-                  data-fotolar="prens-afis%CC%A7.jpg|prens-01.jpg|prens-02.jpg|prens-03.jpg|prens-04.jpg|prens-05.jpg|prens-06.jpg|prens-07.jpg|prens-08.jpg|prens-09.jpg|prens-10.jpg|prens-11.jpg|prens-12.jpg|prens-13.jpg|prens-14.jpg|prens-15.jpg|prens-16.jpg|prens-17.jpg|prens-18.jpg|prens-19.jpg|prens-20.jpg|prens-21.jpg|prens-22.jpg|prens-23.jpg|prens-24.jpg|prens-25.jpg|prens-26.jpg|prens-27.jpg|prens-28.jpg|prens-29.jpg|prens-30.jpg|prens-31.jpg|prens-32.jpg|prens-33.jpg|prens-34.jpg|prens-35.jpg|prens-36.jpg|prens-37.jpg|prens-38.jpg|prens-39.jpg|prens-40.jpg|prens-41.jpg|prens-42.jpg|prens-43.jpg|prens-44.jpg|prens-45.jpg|prens-46.jpg|prens-47.jpg|prens-48.jpg|prens-49.jpg|prens-50.jpg|prens-51.jpg|prens-52.jpg|prens-53.jpg|prens-54.jpg|prens-55.jpg|prens-56.jpg|prens-57.jpg|prens-58.jpg|prens-59.jpg|prens-60.jpg"
+                  data-fotolar="gorseller/prens-afis%CC%A7.jpg|gorseller/prens-01.jpg|gorseller/prens-02.jpg|gorseller/prens-03.jpg|gorseller/prens-04.jpg|gorseller/prens-05.jpg|gorseller/prens-06.jpg|gorseller/prens-07.jpg|gorseller/prens-08.jpg|gorseller/prens-09.jpg|gorseller/prens-10.jpg|gorseller/prens-11.jpg|gorseller/prens-12.jpg|gorseller/prens-13.jpg|gorseller/prens-14.jpg|gorseller/prens-15.jpg|gorseller/prens-16.jpg|gorseller/prens-17.jpg|gorseller/prens-18.jpg|gorseller/prens-19.jpg|gorseller/prens-20.jpg|gorseller/prens-21.jpg|gorseller/prens-22.jpg|gorseller/prens-23.jpg|gorseller/prens-24.jpg|gorseller/prens-25.jpg|gorseller/prens-26.jpg|gorseller/prens-27.jpg|gorseller/prens-28.jpg|gorseller/prens-29.jpg|gorseller/prens-30.jpg|gorseller/prens-31.jpg|gorseller/prens-32.jpg|gorseller/prens-33.jpg|gorseller/prens-34.jpg|gorseller/prens-35.jpg|gorseller/prens-36.jpg|gorseller/prens-37.jpg|gorseller/prens-38.jpg|gorseller/prens-39.jpg|gorseller/prens-40.jpg|gorseller/prens-41.jpg|gorseller/prens-42.jpg|gorseller/prens-43.jpg|gorseller/prens-44.jpg|gorseller/prens-45.jpg|gorseller/prens-46.jpg|gorseller/prens-47.jpg|gorseller/prens-48.jpg|gorseller/prens-49.jpg|gorseller/prens-50.jpg|gorseller/prens-51.jpg|gorseller/prens-52.jpg|gorseller/prens-53.jpg|gorseller/prens-54.jpg|gorseller/prens-55.jpg|gorseller/prens-56.jpg|gorseller/prens-57.jpg|gorseller/prens-58.jpg|gorseller/prens-59.jpg|gorseller/prens-60.jpg"
                   aria-label="Browse Prens key art">
-            <img src="prens-afis%CC%A7.jpg" alt="Prens Season 3 — key art" loading="lazy">
+            <img src="gorseller/prens-afis%CC%A7.jpg" alt="Prens Season 3 — key art" loading="lazy">
             <span class="rozet"><span>61 photos ↗</span></span>
           </button>
         </div>
@@ -868,9 +842,9 @@
         <!-- Sol: afiş -->
         <div class="vitrin__afiş">
           <button class="stilKart" type="button"
-                  data-fotolar="kars-afis%CC%A7.jpg|kars-01.jpg|kars-02.jpg|kars-03.jpg|kars-04.jpg|kars-05.jpg|kars-06.jpg|kars-07.jpg|kars-08.jpg|kars-09.jpg|kars-10.jpg|kars-11.jpg"
+                  data-fotolar="gorseller/kars-afis%CC%A7.jpg|gorseller/kars-01.jpg|gorseller/kars-02.jpg|gorseller/kars-03.jpg|gorseller/kars-04.jpg|gorseller/kars-05.jpg|gorseller/kars-06.jpg|gorseller/kars-07.jpg|gorseller/kars-08.jpg|gorseller/kars-09.jpg|gorseller/kars-10.jpg|gorseller/kars-11.jpg"
                   aria-label="Browse Karşılaşmalar key art and stills">
-            <img src="kars-afis%CC%A7.jpg" alt="Karşılaşmalar Season 3 — key art" loading="lazy">
+            <img src="gorseller/kars-afis%CC%A7.jpg" alt="Karşılaşmalar Season 3 — key art" loading="lazy">
             <span class="rozet"><span>12 photos ↗</span></span>
           </button>
         </div>
@@ -953,7 +927,7 @@
 
         <div class="is is--yakinda gir" style="--sarkma:2.25rem">
           <div class="is__kare">
-            <img src="enmutlu.jpg"
+            <img src="gorseller/enmutlu.jpg"
                  alt="En Mutlu Günümde — slate on set" loading="lazy">
             <span class="rozet"><span>In post · Not yet released</span></span>
           </div>
@@ -1045,7 +1019,7 @@
       <!-- dikey formatta çekilen sosyal medya filmleri -->
       <div class="dikey">
         <figure class="dikeyKart gir">
-          <video controls playsinline preload="none" poster="vakif-01.jpg">
+          <video controls playsinline preload="none" poster="gorseller/vakif-01.jpg">
             <source src="videolar/vakif-01.mp4" type="video/mp4">
           </video>
           <figcaption class="is__etiket">
@@ -1055,7 +1029,7 @@
         </figure>
 
         <figure class="dikeyKart gir">
-          <video controls playsinline preload="none" poster="vakif-02.jpg">
+          <video controls playsinline preload="none" poster="gorseller/vakif-02.jpg">
             <source src="videolar/vakif-02.mp4" type="video/mp4">
           </video>
           <figcaption class="is__etiket">
@@ -1076,59 +1050,59 @@
 
     <div class="kontak" id="kontak">
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 1">
-        <img src="set-01.jpg" alt="On the period set, between takes" loading="lazy">
+        <img src="gorseller/set-01.jpg" alt="On the period set, between takes" loading="lazy">
         <figcaption>01</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 2">
-        <img src="set-02.jpg" alt="Fabrics being dressed on the standing set" loading="lazy">
+        <img src="gorseller/set-02.jpg" alt="Fabrics being dressed on the standing set" loading="lazy">
         <figcaption>02</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 3">
-        <img src="set-03.jpg" alt="Slate before a take" loading="lazy">
+        <img src="gorseller/set-03.jpg" alt="Slate before a take" loading="lazy">
         <figcaption>03</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 4">
-        <img src="set-04.jpg" alt="Blocking a shot with the camera team" loading="lazy">
+        <img src="gorseller/set-04.jpg" alt="Blocking a shot with the camera team" loading="lazy">
         <figcaption>04</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 5">
-        <img src="set-05.jpg" alt="Night exterior in the woods" loading="lazy">
+        <img src="gorseller/set-05.jpg" alt="Night exterior in the woods" loading="lazy">
         <figcaption>05</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 6">
-        <img src="set-06.jpg" alt="Location shoot on open ground" loading="lazy">
+        <img src="gorseller/set-06.jpg" alt="Location shoot on open ground" loading="lazy">
         <figcaption>06</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 7">
-        <img src="set-07.jpg" alt="At the monitor during golden hour" loading="lazy">
+        <img src="gorseller/set-07.jpg" alt="At the monitor during golden hour" loading="lazy">
         <figcaption>07</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 8">
-        <img src="set-08.jpg" alt="Station location, resetting between takes" loading="lazy">
+        <img src="gorseller/set-08.jpg" alt="Station location, resetting between takes" loading="lazy">
         <figcaption>08</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 9">
-        <img src="set-09.jpg" alt="Street unit waiting on the next setup" loading="lazy">
+        <img src="gorseller/set-09.jpg" alt="Street unit waiting on the next setup" loading="lazy">
         <figcaption>09</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 10">
-        <img src="set-10.jpg" alt="Between setups in the shade" loading="lazy">
+        <img src="gorseller/set-10.jpg" alt="Between setups in the shade" loading="lazy">
         <figcaption>10</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 11">
-        <img src="set-11.jpg" alt="Fitting session with a cast member" loading="lazy">
+        <img src="gorseller/set-11.jpg" alt="Fitting session with a cast member" loading="lazy">
         <figcaption>11</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 12">
-        <img src="set-12.jpg" alt="Costume room with the rail" loading="lazy">
+        <img src="gorseller/set-12.jpg" alt="Costume room with the rail" loading="lazy">
         <figcaption>12</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 13">
-        <img src="set-13.jpg" alt="Coffee break on location" loading="lazy">
+        <img src="gorseller/set-13.jpg" alt="Coffee break on location" loading="lazy">
         <figcaption>13</figcaption>
       </figure>
       <figure class="kare gir" tabindex="0" role="button" aria-label="Enlarge photograph 14">
-        <img src="set-14.jpg" alt="Station platform, watching the take from behind the camera" loading="lazy">
+        <img src="gorseller/set-14.jpg" alt="Station platform, watching the take from behind the camera" loading="lazy">
         <figcaption>14</figcaption>
       </figure>
     </div>
