@@ -682,19 +682,22 @@
   }
 </style>
 <script>
-/* Görsel yolu esnekliği: kök dizinde bulamazsa gorseller/ altında,
+/* Görsel yolu esnekliği: kök dizinde bulamazsa gorseller/ altında dener,
    ayrıca Türkçe karakterli adların NFC/NFD varyantlarını dener. */
 (function(){
   function adaylar(u){
     var liste = [u];
     function ekle(v){ if(v && liste.indexOf(v) < 0) liste.push(v); }
+    if(/^https?:/i.test(u)) return liste;           // dış kaynaklara dokunma
     try{
       var ham = decodeURIComponent(u);
       ekle(encodeURI(ham.normalize('NFC')));
       ekle(encodeURI(ham.normalize('NFD')));
     }catch(e){}
     liste.slice().forEach(function(v){
-      if(v.indexOf('gorseller/') !== 0 && v.indexOf('http') !== 0) ekle('gorseller/' + v);
+      if(v.indexOf('gorseller/') > -1) return;
+      var k = v.lastIndexOf('/');
+      ekle(k < 0 ? 'gorseller/' + v : v.slice(0, k + 1) + 'gorseller/' + v.slice(k + 1));
     });
     return liste;
   }
@@ -722,7 +725,7 @@
     }
     document.querySelectorAll('video[poster]').forEach(function(v){
       var p = v.getAttribute('poster');
-      if(!p || p.indexOf('gorseller/') === 0) return;
+      if(!p || p.indexOf('gorseller/') > -1) return;
       var d = new Image();
       d.onerror = function(){ v.setAttribute('poster', 'gorseller/' + p); };
       d.src = p;
@@ -1244,7 +1247,7 @@
     // On set bölümü — tüm kareler tek galeri
     var setKareleri = Array.prototype.slice.call(
       document.querySelectorAll('.kontak .kare img')
-    ).map(function(img){ return { src: img.src, alt: img.alt }; });
+    ).map(function(img){ return { src: img.getAttribute('src'), alt: img.alt }; });
 
     document.querySelectorAll('.kontak .kare').forEach(function(kare, i){
       kare.addEventListener('click', function(){ ac(setKareleri, i); });
