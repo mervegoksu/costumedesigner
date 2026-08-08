@@ -610,6 +610,58 @@
   }
   .kare:hover figcaption, .kare:focus-visible figcaption{ opacity:1; transform:none; }
 
+  /* ---------- ESKİZLER ---------- */
+  .eskizler{
+    border-top:1px solid var(--line);
+    padding-top:clamp(1.5rem,3vw,2.25rem);
+    column-count:1;
+    column-gap:clamp(1rem,2vw,1.5rem);
+  }
+  @media (min-width:620px){  .eskizler{ column-count:2; } }
+  @media (min-width:1180px){ .eskizler{ column-count:3; } }
+
+  .eskiz{
+    position:relative;
+    break-inside:avoid;
+    margin:0 0 clamp(1rem,2vw,1.5rem);
+    padding:clamp(0.5rem,1.1vw,0.9rem);
+    background:var(--chalk);
+    cursor:zoom-in;
+    transition:transform .5s cubic-bezier(.2,.6,.2,1), box-shadow .5s ease;
+  }
+  .eskiz::after{
+    content:"";
+    position:absolute; inset:0;
+    border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+    pointer-events:none;
+  }
+  .eskiz img{
+    width:100%; height:auto; display:block;
+    transition:filter .5s ease;
+  }
+  .eskiz:hover, .eskiz:focus-visible{
+    transform:translateY(-5px);
+    box-shadow:0 22px 45px color-mix(in srgb, #000 55%, transparent);
+  }
+  .eskiz figcaption{
+    position:absolute; top:0; left:0; z-index:2;
+    font-size:0.5625rem; letter-spacing:0.16em;
+    color:var(--ink);
+    padding:0.32rem 0.5rem;
+    background:color-mix(in srgb, var(--chalk) 85%, transparent);
+    opacity:0; transform:translateY(-4px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .eskiz:hover figcaption, .eskiz:focus-visible figcaption{ opacity:1; transform:none; }
+
+  .bolum__giris{
+    margin:0 0 clamp(2rem,4vw,3rem);
+    color:var(--muted);
+    font-size:clamp(0.9375rem, 0.88rem + 0.3vw, 1.0625rem);
+    line-height:1.7;
+    max-width:62ch;
+  }
+
   /* ---------- BÜYÜTME ---------- */
   .buyut{
     position:fixed; inset:0; z-index:100;
@@ -737,6 +789,7 @@
   <nav class="bar__nav" aria-label="Main menu">
     <a href="#about">About</a>
     <a href="#work">Work</a>
+    <a href="#sketches">Sketches</a>
     <a href="#onset">On set</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -1114,6 +1167,55 @@
     </div>
   </section>
 
+  <!-- ============ SKETCHES ============ -->
+  <section class="bolum wrap" id="sketches">
+    <div class="bolum__bas">
+      <h2>From sketch to screen</h2>
+      <span class="etiket">Costume design drawings</span>
+    </div>
+
+    <p class="bolum__giris gir">A selection of original costume sketches created during the design process. Each drawing represents the first visual interpretation of a character, serving as a creative foundation before costumes are brought to life on screen.</p>
+
+    <div class="eskizler">
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 1">
+        <img src="gorseller/eskiz-01.jpg" alt="Guard — armour and heavy cloak, construction notes" loading="lazy">
+        <figcaption>01</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 2">
+        <img src="gorseller/eskiz-02.jpg" alt="Pirate characters — two looks" loading="lazy">
+        <figcaption>02</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 3">
+        <img src="gorseller/eskiz-03.jpg" alt="Masquerade gowns — six looks with cloaks" loading="lazy">
+        <figcaption>03</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 4">
+        <img src="gorseller/eskiz-04.jpg" alt="Fatih Sultan Mehmet — battle armour and disguise costume" loading="lazy">
+        <figcaption>04</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 5">
+        <img src="gorseller/eskiz-05.jpg" alt="Prens — final scene Ottoman costume, front and back" loading="lazy">
+        <figcaption>05</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 6">
+        <img src="gorseller/eskiz-06.jpg" alt="Prens — first Ottoman costume, front and back" loading="lazy">
+        <figcaption>06</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 7">
+        <img src="gorseller/eskiz-07.jpg" alt="Kristof Kolomb — costume design" loading="lazy">
+        <figcaption>07</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 8">
+        <img src="gorseller/eskiz-08.jpg" alt="Ak Şemsettin Paşa — costume design" loading="lazy">
+        <figcaption>08</figcaption>
+      </figure>
+      <figure class="eskiz gir" tabindex="0" role="button" aria-label="Enlarge sketch 9">
+        <img src="gorseller/eskiz-09.jpg" alt="Tin Man — costume construction drawing" loading="lazy">
+        <figcaption>09</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ============ ON SET ============ -->
   <section class="bolum wrap" id="onset">
     <div class="bolum__bas">
@@ -1309,6 +1411,18 @@
       var ad = kart.querySelector('img') ? kart.querySelector('img').alt : '';
       var galeri = yollar.map(function(yol){ return { src: yol, alt: ad }; });
       kart.addEventListener('click', function(){ ac(galeri, 0); });
+    });
+
+    // Eskiz panosu — kendi galerisi
+    var eskizKareleri = Array.prototype.slice.call(
+      document.querySelectorAll('.eskizler .eskiz img')
+    ).map(function(img){ return { src: img.getAttribute('src'), alt: img.alt }; });
+
+    document.querySelectorAll('.eskizler .eskiz').forEach(function(kart, i){
+      kart.addEventListener('click', function(){ ac(eskizKareleri, i); });
+      kart.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(eskizKareleri, i); }
+      });
     });
 
     document.getElementById('kapat').addEventListener('click', function(e){ e.stopPropagation(); kapa(); });
