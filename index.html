@@ -550,6 +550,26 @@
   }
   .dikeyKart .is__etiket{ margin-top:0.85rem; }
 
+  /* ---------- KLİPLER ---------- */
+  .grup__rol{
+    font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--terzi);
+    white-space:nowrap;
+  }
+  .grup__giris{
+    margin:0 0 clamp(1.75rem,3.5vw,2.5rem);
+    color:var(--muted);
+    font-size:clamp(0.875rem, 0.83rem + 0.22vw, 0.9375rem);
+    line-height:1.7;
+    max-width:62ch;
+  }
+  .is__kare video{
+    width:100%; height:100%;
+    display:block; object-fit:cover;
+    background:var(--ink-2);
+  }
+  .is--yerel .is__kare{ cursor:auto; }
+
   /* ---------- ON SET: KONTAK BASKI ---------- */
   .kontak{
     border-top:1px solid var(--line);
@@ -1037,6 +1057,59 @@
             <span class="etiket is__kunye">Dir. Kerem Yükseloğlu</span>
           </figcaption>
         </figure>
+      </div>
+    </div>
+
+    <div class="grup">
+      <div class="grup__bas">
+        <span class="etiket">Music videos</span>
+        <span class="grup__rol">Costume Designer</span>
+      </div>
+
+      <p class="grup__giris gir">As a Costume Designer for music videos, I created costume designs that reflected the artist&rsquo;s style and the overall mood of each song. I was responsible for costume research, preparation, fittings, and on-set costume management throughout the production process.</p>
+
+      <div class="askilik">
+
+        <a class="is gir" style="--sarkma:2.25rem" data-yt="Xi0W3mdjgRM"
+           href="https://youtu.be/Xi0W3mdjgRM" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/Xi0W3mdjgRM/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/Xi0W3mdjgRM/hqdefault.jpg'"
+                 alt="Özay Bakır — Puding — music video" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Özay Bakır — Puding</span>
+            <span class="etiket is__kunye">Yönetmen İzzet Başlak · Kostüm tasarım</span>
+          </div>
+        </a>
+
+        <a class="is gir" style="--sarkma:4.5rem" data-yt="nsehEiUXlkU"
+           href="https://youtu.be/nsehEiUXlkU" target="_blank" rel="noopener">
+          <div class="is__kare">
+            <img src="https://i.ytimg.com/vi/nsehEiUXlkU/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/nsehEiUXlkU/hqdefault.jpg'"
+                 alt="Bilal Hancı — Derman — music video" loading="lazy">
+            <span class="oynat" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Bilal Hancı — Derman</span>
+            <span class="etiket is__kunye">Yönetmen İzzet Başlak · Kostüm tasarım</span>
+          </div>
+        </a>
+
+        <div class="is is--yerel gir" style="--sarkma:3rem">
+          <div class="is__kare">
+            <video controls playsinline preload="none" poster="gorseller/klip-01.jpg">
+              <source src="videolar/klip-01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="is__etiket">
+            <span class="is__ad">Music video</span>
+            <span class="etiket is__kunye">Yönetmen İzzet Başlak · Kostüm tasarım</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
