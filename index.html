@@ -681,6 +681,57 @@
     *{ animation:none !important; transition-duration:.01ms !important; }
   }
 </style>
+<script>
+/* Görsel yolu esnekliği: kök dizinde bulamazsa gorseller/ altında,
+   ayrıca Türkçe karakterli adların NFC/NFD varyantlarını dener. */
+(function(){
+  function adaylar(u){
+    var liste = [u];
+    function ekle(v){ if(v && liste.indexOf(v) < 0) liste.push(v); }
+    try{
+      var ham = decodeURIComponent(u);
+      ekle(encodeURI(ham.normalize('NFC')));
+      ekle(encodeURI(ham.normalize('NFD')));
+    }catch(e){}
+    liste.slice().forEach(function(v){
+      if(v.indexOf('gorseller/') !== 0 && v.indexOf('http') !== 0) ekle('gorseller/' + v);
+    });
+    return liste;
+  }
+  document.addEventListener('error', function(olay){
+    var el = olay.target;
+    if(!el || el.tagName !== 'IMG') return;
+    if(!el.__yollar){ el.__yollar = adaylar(el.getAttribute('src') || ''); el.__sira = 0; }
+    el.__sira++;
+    if(el.__sira < el.__yollar.length) el.setAttribute('src', el.__yollar[el.__sira]);
+  }, true);
+  document.addEventListener('load', function(olay){
+    var el = olay.target;
+    if(el && el.tagName === 'IMG'){ el.__yollar = null; el.__sira = 0; }
+  }, true);
+
+  function hazir(){
+    var kapak = document.querySelector('.kapak__foto');
+    if(kapak){
+      var dene = new Image();
+      dene.onerror = function(){
+        kapak.style.backgroundImage =
+          'url("gorseller/kapak.jpg"), radial-gradient(120% 90% at 70% 20%, #2E2434 0%, #17131A 70%)';
+      };
+      dene.src = 'kapak.jpg';
+    }
+    document.querySelectorAll('video[poster]').forEach(function(v){
+      var p = v.getAttribute('poster');
+      if(!p || p.indexOf('gorseller/') === 0) return;
+      var d = new Image();
+      d.onerror = function(){ v.setAttribute('poster', 'gorseller/' + p); };
+      d.src = p;
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hazir);
+  else hazir();
+})();
+</script>
 </head>
 <body>
 
